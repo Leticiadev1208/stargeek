@@ -1,0 +1,67 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.container{
+display:inline-block;
+grid-template-columns: 1fr;
+grid-template-rows:auto auto;
+grid-template-areas:"h"
+                    "p"
+                    
+                    ;
+
+
+}
+
+
+header{
+grid-area: "h";
+position: absolute;
+height:150px;
+width:100vw;
+background-color:#00A3C7;
+
+    
+   
+   
+    }
+
+main{
+   
+position: absolute;
+height:1200px;
+width:100%;
+top: 152px;
+
+background: rgba(199, 0, 0, 0.7);
+
+}
+
+.lixeira{
+    
+position:absolute;
+
+left:450px;
+top:150px;
+
+}
+
+.escrito{
+position: absolute;
+width: 656px;
+height: 142px;
+left:200px;
+top: 400px;
+}
+
+.seta{
+    position: absolute;
+    width: 656px;
+    height: 142px;
+    left:-400px;
+    top: -100px;
+
+}

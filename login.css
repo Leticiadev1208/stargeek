@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20vh 80vh;
+    grid-template-areas: 
+    "h" 
+    "m" ;
+}
+
+header{
+  grid-area:h;
+  background-color: #00A3C7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+main{
+    grid-area:m;
+    display: flex; 
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-image: url(imagens/bglogin.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   
+}
+
+.home{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
+}
+
+main > h1 {
+    font-size: 3rem;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+form > label{
+    margin: 10px 0;
+   
+
+}
+
+form > input{
+    font-size: 2rem;
+    background-color: red;
+    border-radius:10px;
+  
+    
+}
+
+form > label {
+    font-size: 2rem;
+}
+
+input[type="submit"]{
+    margin-top:30px;
+    background-color:#00A3C7;
+    padding: 10px 20px;
+    border-radius: 10px;
+    
+}
+
+
+
