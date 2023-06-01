@@ -2,20 +2,19 @@ const nome = document.getElementById("nome");
 const descricao = document.getElementById("descricao");
 const botaocadastrar = document.querySelector("#btncadastrar");
 
-femaillogado();
+var emaillogado;
+femailLogado();
 
 var url = new URL (window.location.href);
-var peditar = url.searchParams.get ("peditar");
+var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
 
 if (peditar == "true"){
-    editar (pindice);
+    editar(pindice);
 }
 
-
-
 botaocadastrar.onclick = (evento) =>{
-    if ((peditar != "true")|| (peditar == null)){
+    if ((peditar !="true" ) || (peditar == null)){
     evento.preventDefault();
     fenvio()
     .then(result =>{
@@ -25,7 +24,8 @@ botaocadastrar.onclick = (evento) =>{
         {
             nome : nome.value,
             descricao : descricao.value,
-            foto  : nomeArq,        
+            foto  : nomeArq,  
+            email: emaillogado      
         }
     )
 
@@ -40,12 +40,10 @@ botaocadastrar.onclick = (evento) =>{
 } 
 else{
     editarenvio (evento);
-    window.location.assign("catalagoitem.html");
+    
 }
 
 } 
-
-
 
 var nomeArq;
 async function fenvio() { 
@@ -78,15 +76,13 @@ async function fenvio() {
       }
 }
 
-function editar (indice){
+function editar(indice){
     nome.value = "";
-    descricao.valjue = "";
-    foto.files[0] = null;
-    let dados = JSON.parse(localStorage.getItem
-        ("catalago"));
+    descricao.value = "";
+    let dados = JSON.parse(localStorage.getItem("catalogo"));
     nome.value = dados[indice].nome;
-    descricao.value = dados [indice].descricao;
-    fotoa = dados [indice].foto;
+    descricao.value = dados[indice].descricao;
+    fotoa = dados[indice].foto;
 }
 
 var fotoa;
@@ -107,10 +103,20 @@ function editarenvio(evento){
 }
 
 function salvaEdicao (pfoto){
-    let dados = JSON.parse(localStorage.getItem("catalago"));
+    let dados = JSON.parse(localStorage.getItem("catalogo"));
     dados[pindice].nome = nome.value;
     dados[pindice].dscricao = descricao.value;
     dados[pindice].foto = pfoto;
     dados[pindice].email = emaillogado;
-    localStorage.setItem("catalago",JSON.stringify(dados));
+    localStorage.setItem("catalogo",JSON.stringify(dados));
+    window.location.assign("catalago.html");
+}
+
+function femailLogado(){
+    let dados = sessionStorage.getItem("logado");
+    if (dados == null){
+        window.location.assign("login.html");
+    }else{
+        emaillogado = dados;
+    }
 }

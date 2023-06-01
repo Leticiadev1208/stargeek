@@ -1,6 +1,4 @@
 
-
-
 const formulario = document.getElementById("formulario");
 const msg = document.querySelector(".mensagem");
 const email = document.getElementById("email");
@@ -27,6 +25,7 @@ formulario.onsubmit = (evt)=>{
     dados.forEach((elemento) => {
         if(elemento.emailcliente == email.value && elemento.senhacliente == senha.value){
             msg.innerHTML = "Aguarde redirecionando..."
+            sessionStorage.setItem("logado", email.value);
             setTimeout(()=>{
                 window.location.assign("catalago.html");
             }, 2000);
